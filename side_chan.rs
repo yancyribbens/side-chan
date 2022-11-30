@@ -1,5 +1,17 @@
 // inspired by https://electricdusk.com/cmov-conversion.html
 
+// Select an element from an array in non-constant time
+pub fn non_constant_time_lookup(secret_idx: u64,
+                            table: [u64; 16]) -> bool {
+    for val in table.iter() {
+        if *val == secret_idx {
+            return true
+        }
+    }
+
+    return false
+}
+
 // Select an element from an array in constant time
 pub fn constant_time_lookup(secret_idx: usize,
                             table: [u64; 16]) -> bool {
