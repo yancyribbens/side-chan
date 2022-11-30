@@ -5,11 +5,11 @@ pub fn constant_time_lookup(secret_idx: usize,
                             table: [u64; 16]) -> bool {
     let mut result: i64 = 0;
 
-    for (idx, value) in table.iter().enumerate() {
-        let cond = idx == secret_idx;
-        let mask = cond as i64;
-        result |= (*value as i64) & mask;
+    for (i, _val) in table.iter().enumerate() {
+        let cond = i == secret_idx;
+        result |= cond as i64;
     }
+
     result != 0
 }
 
